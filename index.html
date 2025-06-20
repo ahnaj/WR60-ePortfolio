@@ -18,6 +18,7 @@
       <li><a href="#week1">Week 1 Self-Assessment</a></li>
       <li><a href="#artifacts">Artifacts</a></li>
       <li><a href="#compositions">Compositions</a></li>
+      <li><a href="#archive">Archive</a></li>
     </ul>
   </nav>
 
@@ -60,10 +61,36 @@
         <li>Thematic highlights (e.g., "My Breakthroughs")</li>
       </ul>
     </section>
+
+    <section id="archive">
+      <h2>Archive of All Work</h2>
+      <label for="archive-select">Select a document to view:</label>
+      <select id="archive-select">
+        <option value="">-- Choose a document --</option>
+        <option value="HTML/wr60-self-assessment.html">WR60 Self-Assessment</option>
+      </select>
+      <div id="archive-viewer" style="margin-top:1em;">
+        <iframe id="archive-iframe" src="" width="100%" height="600" style="border:1px solid #ccc; display:none;"></iframe>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>WR39C Portfolio | Created by [Your Name]</p>
   </footer>
+
+  <script>
+    // filepath: d:\UCI\WR60\ePortfolio\index.html
+    document.getElementById('archive-select').addEventListener('change', function() {
+      var iframe = document.getElementById('archive-iframe');
+      if (this.value) {
+        iframe.src = this.value;
+        iframe.style.display = 'block';
+      } else {
+        iframe.src = '';
+        iframe.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>
