@@ -4,8 +4,10 @@ body {
   margin: 0;
   padding: 0;
   line-height: 1.6;
-  background-color: #f9f9f9;
+  background: linear-gradient(120deg, #b3e0ff 0%, #e0f7fa 100%);
   color: #333;
+  /* background-size: 400% 400%; */
+  /* animation: waterBackground 18s ease-in-out infinite; */
 }
 
 header {
@@ -16,7 +18,7 @@ header {
 }
 
 nav {
-  background: #e1e1e1;
+  background: #255799;
   padding: 1rem;
   text-align: center;
 }
@@ -33,8 +35,55 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #00497a;
+  color: #fff;      
   font-weight: bold;
+}
+
+nav ul li a:hover {
+  color: #ffd700;   /* Example: gold on hover, or pick any color you like */
+}
+
+/* Dropdown menu for nav */
+nav ul li.dropdown {
+  position: relative;
+}
+
+nav ul li .dropdown-content {
+  display: none;
+  position: absolute;
+  background: #00497a;
+  min-width: 180px;
+  z-index: 1000;
+  left: 0;
+  top: 100%;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 0;
+}
+
+nav ul li.dropdown:hover .dropdown-content,
+nav ul li.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+nav ul li .dropdown-content li {
+  display: block;
+  width: 100%;
+}
+
+nav ul li .dropdown-content a {
+  color: #fff;
+  background: none;
+  padding: 0.7em 1.2em;
+  display: block;
+  text-align: left;
+  border-radius: 0;
+  font-weight: normal;
+}
+
+nav ul li .dropdown-content a:hover {
+  background: #005fa3;
+  color: #ffd700;
 }
 
 main {
@@ -55,4 +104,211 @@ footer {
   text-align: center;
   padding: 1rem;
   margin-top: 2rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  z-index: 100;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.08);
+}
+
+/* Carousel Styles */
+/* Carousel Wrapper */
+.carousel-outer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel-wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.carousel-wrapper.panel-open {
+  /* Optionally, let it expand for the panel */
+  /* max-width: none; */
+  justify-content: flex-start;
+}
+
+/* Carousel Container */
+.carousel-container {
+  width: 1200vw;
+  max-width: 1200px;
+  margin: 2em auto;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2em 2em 2.5em 2em;
+  min-height: 400px;
+  transition: box-shadow 0.3s, transform 0.4s cubic-bezier(.4,2,.6,1), opacity 0.4s;
+  will-change: transform;
+}
+.carousel-container.panel-open {
+  opacity: 0.7;
+  pointer-events: none;
+  /* No transform needed, wrapper handles alignment */
+}
+.carousel-section {
+  display: none;
+  /* animation: fadeIn 0.5s; */
+  transition: 
+    transform 0.2s cubic-bezier(.4,2,.6,1), 
+    box-shadow 0.2s cubic-bezier(.4,2,.6,1);
+  will-change: transform;
+}
+.carousel-section.active {
+  display: block;
+}
+.carousel-section:hover {
+  /* No floating animation, just highlight */
+  animation-play-state: paused;
+  transform: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+  z-index: 10;
+}
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #e0e7ef;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.5em;
+  color: #3b4252;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  transition: background 0.2s;
+  z-index: 2;
+}
+.carousel-arrow:hover {
+  background: #b6c4dd;
+}
+.carousel-arrow.left {
+  left: -22px;
+}
+.carousel-arrow.right {
+  right: -22px;
+}
+@media (max-width: 900px) {
+  .carousel-container {
+    max-width: 98vw;
+    padding: 1em 0.5em 2.5em 0.5em;
+  }
+  .carousel-arrow.left, .carousel-arrow.right {
+    left: 2px;
+    right: 2px;
+  }
+}
+
+/* Responsive: stack panel below carousel on small screens */
+@media (max-width: 1100px) {
+  .carousel-wrapper,
+  .carousel-wrapper.panel-open {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  #side-panel,
+  #side-panel.open {
+    position: static;
+    margin-left: 0;
+    margin-top: 32px;
+    width: 98vw;
+    max-width: 98vw;
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .carousel-container.panel-open {
+    transform: none;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+}
+
+/* Expanded section styling */
+.carousel-section.expanded {
+  position: fixed !important;
+  top: 4vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw !important;
+  max-width: 1100px;
+  height: 92vh !important;
+  max-height: 900px;
+  background: linear-gradient(135deg, #f8fafc 60%, #e0e7ef 100%);
+  z-index: 9999;
+  margin: 0 !important;
+  padding: 3em 2em 2em 2em !important;
+  border-radius: 18px;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+  overflow: auto;
+  display: block !important;
+  animation: expandSection 0.35s cubic-bezier(.4,2,.6,1);
+}
+@keyframes expandSection {
+  from {
+    transform: translateX(-50%) scale(0.85);
+    opacity: 0.2;
+  }
+  to {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+/* Hide rest of carousel when expanded */
+.carousel-container.expanded-mode > .carousel-section:not(.expanded),
+.carousel-container.expanded-mode > .carousel-arrow,
+#side-panel {
+  display: none !important;
+}
+/* Show close button in expanded mode */
+#close-expanded-btn {
+  position: absolute;
+  top: 1.2em;
+  right: 1.5em;
+  background: #00497a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fullscreen-close-btn, #close-expanded-btn {
+  position: absolute;
+  top: 1.2em;
+  right: 1.5em;
+  background: #00497a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 10000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

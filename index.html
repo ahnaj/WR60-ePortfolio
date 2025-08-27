@@ -3,94 +3,195 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WR39C Eportfolio</title>
+  <title>WR60 ePortfolio</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
-    <h1>WR39C Eportfolio</h1>
-    <p>Documenting My Writing Journey</p>
-  </header>
+  <header style="background: url('Images/uci_eaters.jpg') center/cover no-repeat; padding: 3.5em 0 2em 0; position: relative;">
+  <h1 style="color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.45); background: rgba(0,0,0,0.25); display: inline-block; padding: 0.3em 1.5em; border-radius: 12px;">
+    WR60 ePortfolio
+  </h1>
+</header>
 
   <nav>
     <ul>
-      <li><a href="#intro">Reflective Introduction</a></li>
-      <li><a href="#week1">Week 1 Self-Assessment</a></li>
-      <li><a href="#artifacts">Artifacts</a></li>
-      <li><a href="#compositions">Compositions</a></li>
-      <li><a href="#archive">Archive</a></li>
+      <li><a href="#home" onclick="showSection(0);return false;">Home</a></li>
+      <li><a href="#intro" onclick="showSection(1);return false;">Reflective Introduction</a></li>
+      <li><a href="#self" onclick="showSection(2);return false;">Self Assessment</a></li>
+      <li class="dropdown">
+        <a href="#contexts" onclick="showSection(3);return false;">Contexts Project</a>
+        <ul class="dropdown-content">
+          <li><a href="#contexts" onclick="showContextsSubpage('draft1'); showSection(3); return false;">Draft #1</a></li>
+          <li><a href="#contexts" onclick="showContextsSubpage('draft2'); showSection(3); return false;">Draft #2</a></li>
+          <li><a href="#contexts" onclick="showContextsSubpage('final'); showSection(3); return false;">Final Draft</a></li>
+          <li><a href="#contexts" onclick="showContextsSubpage('reflection'); showSection(3); return false;">Reflection</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#advocacy" onclick="showSection(4);return false;">Advocacy Project</a>
+        <ul class="dropdown-content">
+          <li><a href="#advocacy" onclick="showAdvocacySubpage('draft1'); showSection(4); return false;">Draft #1</a></li>
+          <li><a href="#advocacy" onclick="showAdvocacySubpage('draft2'); showSection(4); return false;">Draft #2</a></li>
+          <li><a href="#advocacy" onclick="showAdvocacySubpage('final'); showSection(4); return false;">Final Draft</a></li>
+          <li><a href="#advocacy" onclick="showAdvocacySubpage('reflection'); showSection(4); return false;">Reflection</a></li>
+        </ul>
+      </li>
+      <li><a href="#readings" onclick="showSection(5);return false;">Readings</a></li>
+      <li><a href="#archive" onclick="showSection(6);return false;">Archive</a></li>
     </ul>
   </nav>
 
   <main>
-    <section id="intro">
-      <h2>Reflective Introduction</h2>
-      <p>Minimum 1500 words, multimodal, with hyperlinks to supporting work. Address the following areas:</p>
-      <ol>
-        <li>Transferring What You Know</li>
-        <li>Your Composing Process</li>
-        <li>Rhetoric, Argumentation & Multimodal Communication</li>
-        <li>Revision & Writing Community</li>
-      </ol>
-    </section>
+  <div class="carousel-outer">
+    <div class="carousel-wrapper" id="carousel-wrapper">
+      <div class="carousel-container">
+        <!-- Add navigation arrows back in -->
+        <button class="carousel-arrow left" onclick="prevSection()" aria-label="Previous">&#8592;</button>
+        <button class="carousel-arrow right" onclick="nextSection()" aria-label="Next">&#8594;</button>
 
-    <section id="week1">
-      <h2>Week 1 Self-Assessment</h2>
-      <p>Insert your initial reflection on your writing experience and goals for WR39C here.</p>
-    </section>
+        <section class="carousel-section active" id="home">
+          <h2>Hello!</h2>
+          <p>Welcome aboard to my ePortfolio for WR60! This webpage let's you navigate through an archive of all my work, 
+            gives insight into my writing process, and showcases my culmination projects for the course. The theme of our 
+            course this Summer '25 was "Suburbia & its Discontents." It proved to be a familiar yet complex topic to explore
+            as students of UCI, located in the suburban city of Irvine. <br> <br> 
+            <em>Click the arrows to the left and right or use the navigation bar above to explore my ePortfolio!</em>
+          </p>
+          <img src="Images/uci_aerial.jpg" alt="UCI Aerial View" style="max-width:100%; height:auto; border-radius:12px; margin-bottom:1em;">
+          
+          <p>Here's a short introduction video about me I recorded at UCI at the start of WR60!</p>
+          <div style="margin: 2em 0;">
+            <iframe 
+              src="https://canvas.eee.uci.edu/media_attachments_iframe/31835263?type=video&embedded=true&verifier=IUn2i7ow30eO1VCAvRlUo0mKVfADnAhqRXa8PmLM"
+              width="100%" height="400" frameborder="0" allowfullscreen
+              style="border-radius:12px; background:#000;">
+            </iframe>
+          </div>
+        </section>
 
-    <section id="artifacts">
-      <h2>Supporting Materials & Artifacts</h2>
-      <ul>
-        <li>Best writing samples</li>
-        <li>Before-and-after revisions</li>
-        <li>Annotated bibliography entries</li>
-        <li>Instructor & Peer feedback</li>
-        <li>Screenshots of research process</li>
-        <li>Other media (music, notes, chats, images)</li>
-      </ul>
-      <p>Add captions or notes to explain your selection of each artifact.</p>
-    </section>
+        <section class="carousel-section" id="intro">
+          <h2>Reflective Introduction</h2>
+          <p></p>
+        </section>
 
-    <section id="compositions">
-      <h2>Compositions</h2>
-      <p>You can organize this by:</p>
-      <ul>
-        <li>Chronological prompts (Prompt 1-4)</li>
-        <li>Writing categories (e.g., Showcase Writing, Revision Strategies)</li>
-        <li>Thematic highlights (e.g., "My Breakthroughs")</li>
-      </ul>
-    </section>
+        <section class="carousel-section" id="self">
+          <h2>Self Assessment</h2>
+          <p>The following is my written self assessment from Week 1 of WR60.</p>
+          <iframe 
+            src="PDF/wr60-self-assessment.pdf" 
+            width="100%" 
+            height="800" 
+            style="border:1px solid #ccc; border-radius:8px; margin-top:1em;">
+          </iframe>
+        </section>
 
-    <section id="archive">
-      <h2>Archive of All Work</h2>
-      <label for="archive-select">Select a document to view:</label>
-      <select id="archive-select">
-        <option value="">-- Choose a document --</option>
-        <option value="HTML/wr60-self-assessment.html">WR60 Self-Assessment</option>
-      </select>
-      <div id="archive-viewer" style="margin-top:1em;">
-        <iframe id="archive-iframe" src="" width="100%" height="600" style="border:1px solid #ccc; display:none;"></iframe>
+        <section class="carousel-section" id="contexts">
+          <h2>Contexts Project</h2>
+          <div class="contexts-tabs" style="margin-bottom:1em;">
+            <button onclick="showContextsSubpage('draft1')">Draft #1</button>
+            <button onclick="showContextsSubpage('draft2')">Draft #2</button>
+            <button onclick="showContextsSubpage('final')">Final Draft</button>
+            <button onclick="showContextsSubpage('proposal')">Research Proposal</button>
+            <button onclick="showContextsSubpage('reflection')">Reflection</button>
+          </div>
+          <div id="contexts-draft1" class="contexts-subpage">
+            <h3>Draft #1</h3>
+            <iframe src="PDF/wr60-cp-draft-1.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="contexts-draft2" class="contexts-subpage" style="display:none;">
+            <h3>Draft #2</h3>
+            <iframe src="PDF/wr60-cp-draft-2.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="contexts-final" class="contexts-subpage" style="display:none;">
+            <h3>Final Draft</h3>
+            <iframe src="PDF/wr60-cp-final-draft.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="contexts-proposal" class="contexts-subpage" style="display:none;">
+            <h3>Research Proposal</h3>
+            <iframe src="PDF/wr60-cp-research-proposal.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="contexts-reflection" class="contexts-subpage" style="display:none;">
+            <h3>Reflection</h3>
+            <iframe src="PDF/wr60-multimodal-contexts-reflection.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+        </section>
+
+        <section class="carousel-section" id="advocacy">
+          <h2>Advocacy Project</h2>
+          <div class="advocacy-tabs" style="margin-bottom:1em;">
+            <button onclick="showAdvocacySubpage('draft1')">Draft #1</button>
+            <button onclick="showAdvocacySubpage('draft2')">Draft #2</button>
+            <button onclick="showAdvocacySubpage('final')">Final Draft</button>
+            <button onclick="showAdvocacySubpage('reflection')">Reflection</button>
+          </div>
+          <div id="advocacy-draft1" class="advocacy-subpage">
+            <h3>Draft #1</h3>
+            <iframe src="PDF/wr60-ap-draft-1.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="advocacy-draft2" class="advocacy-subpage" style="display:none;">
+            <h3>Draft #2</h3>
+            <iframe src="PDF/wr60-ap-draft-2.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="advocacy-final" class="advocacy-subpage" style="display:none;">
+            <h3>Final Draft</h3>
+            <iframe src="PDF/wr60-ap-final-draft.pdf" width="100%" height="800" style="border:1px solid #ccc; border-radius:8px;"></iframe>
+          </div>
+          <div id="advocacy-reflection" class="advocacy-subpage" style="display:none;">
+            <h3>Reflection</h3>
+            <p></p>
+          </div>
+        </section>
+
+        <section class="carousel-section" id="readings">
+          <h2>Readings</h2>
+          <p>Below is a selection of readings that I have explored over the course of WR60. <br><br>
+            <em>Select a reading from the dropdown to view it in the embedded PDF viewer.</em>
+          </p>
+          <label for="readings-select">Select a reading to view:</label>
+          <select id="readings-select">
+            <option value="">-- Choose a PDF --</option>
+            <option value="Readings/A FIELD GULDE TO SPRAWL.pdf">A Field Guide to Sprawl</option>
+            <option value="Readings/a-peoples-guide-to-orange-county-intro.pdf">A People's Guide to Orange County (Introduction)</option>
+            <option value="Readings/Dan Graham_Homes for America.pdf">Dan Graham — Homes for America</option>
+            <option value="Readings/Evan Mckenzie - Privatopia.pdf">Evan McKenzie — Privatopia</option>
+            <option value="Readings/hayden_sitcom suburbs.pdf">Dolores Hayden — Sitcom Suburbs</option>
+            <option value="Readings/John Ollen, Clustering Is the Key to Convenient Living.pdf">John Ollen — Clustering Is the Key to Convenient Living</option>
+            <option value="Readings/marx_ideology of space.pdf">Karl Marx — Ideology of Space</option>
+            <option value="Readings/On Hollywood _ the place, the industry -- Scott, Allen J_ -- 2004 dec 31 -- Princeton University Press -- 9780691116839 -- 9f4ef97e61e0c0dd3d66b60082c9d2c8 -- Anna’s Archive.pdf">Allen J. Scott — On Hollywood: The Place, the Industry</option>
+            <option value="Readings/Right to the Suburb  Rethinking Lefebvre and Immigrant Activism.pdf">Right to the Suburb: Rethinking Lefebvre and Immigrant Activism</option>
+            <option value="Readings/William Whyte  Open Space  and Environmental Activism.pdf">William Whyte — Open Space and Environmental Activism</option>
+          </select>
+          <div id="readings-viewer" style="margin-top:1em;">
+            <iframe id="readings-iframe" src="" width="100%" height="1200" style="border:1px solid #ccc; display:none;"></iframe>
+          </div>
+        </section>
+
+        <section class="carousel-section" id="archive">
+          <h2>Archive of All Work</h2>
+          <label for="archive-select">Select a document to view:</label>
+          <select id="archive-select">
+            <option value="">-- Choose a document --</option>
+            <option value="HTML/wr60-self-assessment.html">WR60 Self-Assessment</option>
+          </select>
+          <div id="archive-viewer" style="margin-top:1em;">
+            <iframe id="archive-iframe" src="" width="100%" height="600" style="border:1px solid #ccc; display:none;"></iframe>
+          </div>
+        </section>
       </div>
-    </section>
-  </main>
+      <div id="side-panel">
+        <button id="close-panel" aria-label="Close">&times;</button>
+        <div id="panel-content">
+          <!-- Details will be injected here -->
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 
   <footer>
-    <p>WR39C Portfolio | Created by [Your Name]</p>
+    <p>WR60 Summer '25 ePortfolio | Anthony James Ahn CpE '27</p>
   </footer>
 
-  <script>
-    // filepath: d:\UCI\WR60\ePortfolio\index.html
-    document.getElementById('archive-select').addEventListener('change', function() {
-      var iframe = document.getElementById('archive-iframe');
-      if (this.value) {
-        iframe.src = this.value;
-        iframe.style.display = 'block';
-      } else {
-        iframe.src = '';
-        iframe.style.display = 'none';
-      }
-    });
-  </script>
+  <script src="carousel.js"></script>
 </body>
 </html>

@@ -7,17 +7,22 @@ try:
 except OSError:
     pypandoc.download_pandoc()
 
-# Define source folder
-folder = "./Documents"  # Use current working directory or update path
+# Define source and output folders
+folder = "./Documents"
+output_folder = "./PDF/"
+os.makedirs(output_folder, exist_ok=True)
 
-# Convert all .docx files in the folder to .html
+# Convert all .docx files in the folder to .pdf
 for filename in os.listdir(folder):
     if filename.endswith(".docx"):
         input_path = os.path.join(folder, filename)
-        output_filename = os.path.splitext(filename)[0] + ".html"
-        output_path = os.path.join("./HTML/", output_filename)
+        output_filename = os.path.splitext(filename)[0] + ".pdf"
+        output_path = os.path.join(output_folder, output_filename)
 
-        print(f"Converting {filename} to {output_filename}")
-        pypandoc.convert_file(input_path, 'html', outputfile=output_path)
+        print(f"Converting {filename} → {output_filename}")
+        try:
+            pypandoc.convert_file(input_path, 'pdf', outputfile=output_path)
+        except Exception as e:
+            print(f"❌ Failed to convert {filename}: {e}")
 
-print("All conversions completed.")
+print("✅ All possible conversions completed.")
